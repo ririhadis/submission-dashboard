@@ -88,7 +88,7 @@ def create_byclusseason1_df(df):
     return byclusseason1_df
 
 #load dataset
-all_df = pd.read_csv("main_data.csv")
+all_df = pd.read_csv("dashboard/main_data.csv")
 
 #mengubah dataframe dteday agar tetap bertipe data datetime
 datetime_columns = ["dteday"]
