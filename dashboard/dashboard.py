@@ -8,10 +8,6 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='darkgrid')
 
-st.write("SECRETS:", st.secrets)
-st.write("KEYS:", st.secrets.keys())
-st.stop()
-
 credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
 
 client = storage.Client(credentials=credentials, project=credentials.project_id)
@@ -326,5 +322,6 @@ ax[1].tick_params(axis='x', labelsize=12)
 st.pyplot(fig)
 
 st.caption('Copyright (c) Submission Dicoding 2024')
+
 
 
