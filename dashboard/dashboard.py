@@ -10,6 +10,10 @@ sns.set(style='darkgrid')
 
 credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
 
+st.success("Credential GCP berhasil dibuat!")
+st.write("Service account:", credentials.service_account_email)
+st.write("Project:", credentials.project_id)
+
 client = storage.Client(credentials=credentials, project=credentials.project_id)
 bucket = client.bucket("byke-bucket")
 blob = bucket.blob("main_data.csv")
@@ -322,6 +326,7 @@ ax[1].tick_params(axis='x', labelsize=12)
 st.pyplot(fig)
 
 st.caption('Copyright (c) Submission Dicoding 2024')
+
 
 
 
