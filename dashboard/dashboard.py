@@ -1,5 +1,6 @@
 from google.cloud import storage
 from google.oauth2 import service_account
+from datetime import datetime
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
@@ -16,6 +17,9 @@ blob = bucket.blob("main_data.csv")
 blob.download_to_filename("main_data.csv")
 
 df = pd.read_csv("main_data.csv")
+
+last_fetch = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+st.caption(f"Data source: Google Cloud Platform | Last updated: {last_fetch}")
 
 #membuat data frame
 def create_monthly_sharing_df(df):
@@ -322,6 +326,7 @@ ax[1].tick_params(axis='x', labelsize=12)
 st.pyplot(fig)
 
 st.caption('Copyright (c) Submission Dicoding 2024')
+
 
 
 
