@@ -8,7 +8,7 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='darkgrid')
 
-credentials = service_account.Credentials.from_service_account_info(dict(st.secrets["gcp_service_account"]))
+credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
 
 client = storage.Client(credentials=credentials, project=credentials.project_id)
 bucket = client.bucket("byke-bucket")
@@ -322,6 +322,7 @@ ax[1].tick_params(axis='x', labelsize=12)
 st.pyplot(fig)
 
 st.caption('Copyright (c) Submission Dicoding 2024')
+
 
 
 
